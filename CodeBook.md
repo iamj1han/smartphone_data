@@ -1,35 +1,43 @@
 CodeBook
 ================
 
-``` r
-knitr::opts_chunk$set(echo = FALSE)
-
-# A code book that describes the variables, the data, and any transformations or work that were performed to clean up the data
-```
-
-## Load
+## Objectives
 
 ``` r
-# load raw data to be used for tidying up
-# X_train, y_train, subject_train are 561-length feature vectors, output labels (6 activity types), and subject number (1-30), respectively in the training dataset
+# Getting and Cleaning Data Course Project
 
-X_train<-read.table("./train/X_train.txt") 
-y_train<-read.table("./train/y_train.txt")
-subject_train<-read.table("./train/subject_train.txt")
+# The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set. 
 
-# ditto, but in the test dataset
-
-X_test<-read.table("./test/X_test.txt")
-y_test<-read.table("./test/y_test.txt")
-subject_test<-read.table("./test/subject_test.txt")
-
-# load 561 feature names and 6 activity labels into character vectors so we can rename the variables later
-
-feature_names<-readLines("./features.txt") 
-activity_labels<-readLines("./activity_labels.txt")
+# This code book describes the variables, the data, and any transformations or work that were performed to clean up the data
 ```
 
-## Run Script
+## Files, Data, Variable
+
+``` r
+# Data for the project: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip (already downloaded and unzipped in this repository)
+
+# ./test: folder that contains raw test data
+# ./train: folder that contains raw training data
+# ./features.txt: feature names
+# ./features_info.txt: feature detailed information (not used in the analysis)
+# ./activity_labels.txt: activity labels
+# ./CodeBook.md: knitted version of CodeBook.Rmd
+# ./CodeBook.Rmd: codebook that describes the variables, the data, and any transformations or work that were performed to clean up the data
+# ./run_analysis.R: a script performing the tidying up
+# ./tidy_dataset.txt: output of the tidying up
+
+# Dataset Information
+
+# The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+# For each record in the dataset it is provided:
+
+# - A 561-feature vector with time and frequency domain variables. 
+# - Its activity label. 
+# - An identifier of the subject who carried out the experiment. 
+```
+
+## Script and Output
 
 ``` r
 # input: X_train, y_train, subject_train, X_test, y_test, subject_test, feature_names, activity_labels loaded from above.

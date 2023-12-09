@@ -4,7 +4,27 @@
 library(dplyr) #load library to be used
 library(tidyr)
 
-extract_index_mean<-grep("\\bmean\\(\\)", feature_names) # extract only the variables that contain the string "mean()" and "std()"
+# load raw data to be used for tidying up
+# X_train, y_train, subject_train are 561-length feature vectors, output labels (6 activity types), and subject number (1-30), respectively in the training dataset
+
+X_train<-read.table("./train/X_train.txt") 
+y_train<-read.table("./train/y_train.txt")
+subject_train<-read.table("./train/subject_train.txt")
+
+# ditto, but in the test dataset
+
+X_test<-read.table("./test/X_test.txt")
+y_test<-read.table("./test/y_test.txt")
+subject_test<-read.table("./test/subject_test.txt")
+
+# load 561 feature names and 6 activity labels into character vectors so we can rename the variables later
+
+feature_names<-readLines("./features.txt") 
+activity_labels<-readLines("./activity_labels.txt")
+
+# extract only the variables that contain the string "mean()" and "std()"
+
+extract_index_mean<-grep("\\bmean\\(\\)", feature_names) 
 extract_index_std<-grep("\\bstd\\(\\)", feature_names)
 feature_names_trim<-feature_names[c(extract_index_mean, extract_index_std)] # check if the correct columns were selected
 
