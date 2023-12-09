@@ -14,7 +14,6 @@ output: github_document
 
 # This code book describes the variables, the data, and any transformations or work that were performed to clean up the data
 
----------------------------------------------------
 ## Files, Data, Variable
 
 # Data for the project: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip (already downloaded and unzipped in this repository)
@@ -39,11 +38,11 @@ output: github_document
 # - Its activity label. 
 # - An identifier of the subject who carried out the experiment. 
 
----------------------------------------------------
 ## Script and Output
 
 # input: X_train, y_train, subject_train, X_test, y_test, subject_test, feature_names, activity_labels loaded from above.
 # output: tidy_dataset.txt that containes average of each variable grouped by subject number (1-30) and activity type (1-6), i.e. 180 groups
 
 source("./run_analysis.R")
+
 ```
